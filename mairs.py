@@ -22,8 +22,8 @@ class MultiBeamsSet():
         MAIRS = pd.DataFrame(columns=["wavenumber", "IP", "OP"])
         mairs_bkg = self.multibeams_bkg.get_op_ip(ppolar=ppolar)
         mairs_smp = self.multibeams_smp.get_op_ip(ppolar=ppolar)
-        MAIRS["IP"] = -np.log(mairs_smp["IP"] / mairs_bkg["IP"])
-        MAIRS["OP"] = -np.log(mairs_smp["OP"] / mairs_bkg["OP"])
+        MAIRS["IP"] = -np.log10(mairs_smp["IP"] / mairs_bkg["IP"])
+        MAIRS["OP"] = -np.log10(mairs_smp["OP"] / mairs_bkg["OP"])
         MAIRS["wavenumber"] = mairs_smp["wavenumber"][:]
         return MAIRS
     
